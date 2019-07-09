@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import Log from './components/Log';
+import UserInput from './components/UserInput';
+
 class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>
-          <marquee scrollamount="50">React Site</marquee>
-        </h1>
+        <Log />
+        <UserInput />
       </div>
     )
   }
