@@ -24,6 +24,7 @@ class App extends Component {
             break;
         case 'clear': 
             this.clearLog();
+            return `The log has been cleared`
         default: 
             return 'The given command does not exist'
     }
