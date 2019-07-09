@@ -1,4 +1,25 @@
 .log {
     flex-grow: 1;
     background: rgba(0, 0, 0, 0.93);
+    padding: 12px;
+}
+
+.log-entry {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.log-entry-reference {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.log-entry-reference-displayname {
+    color: rgba(255, 255, 255, 0.12);
+}
+
+.log-entry-response {
+    padding: 0.33em 0 0 1em;
+    color: rgba(255, 255, 255, 0.7);
 }
