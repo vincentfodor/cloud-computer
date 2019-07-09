@@ -5,6 +5,8 @@ import './App.css';
 import Log from './components/Log';
 import UserInput from './components/UserInput';
 
+import commandListener from './listeners/commandlistener';
+
 class App extends Component {
   state = {
     log: [
@@ -17,10 +19,16 @@ class App extends Component {
     ]
   }
 
-  addEntryToLog = command => {
+  addEntryToLog = e => {
+    e.preventDefault();
+
+    const command = e.target.command.value;
+
+    const response = commandListener(command);
+
     const entry = {
       command: command,
-      response: '...',
+      response: response || 'Error',
       user: 'root',
       host: '127.0.0.1'
     }
@@ -31,13 +39,15 @@ class App extends Component {
         entry
       ]
     }));
+
+    e.target.command.value = null;
   }
 
   render() {
     return (
       <div className="app">
-        <Log log={this.state.log} addEntryToLog={this.addEntryToLog} />
-        <UserInput />
+        <Log log={this.state.log} />
+        <UserInput addEntryToLog={this.addEntryToLog} />
       </div>
     )
   }

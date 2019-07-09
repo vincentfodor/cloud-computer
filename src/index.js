@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import path from 'path';
 
 import config from './config/server';
 
@@ -10,10 +11,10 @@ app.use(bodyParser.json());
 
 app.use(cors(config.corsOptions));
 
-app.get('/', (req, res, next) => {
-  res.send({
-    response: 'Hello World!'
-  });
+app.get('/download/:file', (req, res) => {
+  const file = req.params.file;
+  const fileLocation = path.join(__dirname, '/files', file);
+  res.download(fileLocation, file);
 });
 
 app.listen(config.port, () => {
