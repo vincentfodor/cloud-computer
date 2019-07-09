@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import config from '../config';
 
 import './App.css';
 
@@ -9,6 +10,12 @@ import UserInput from './components/UserInput';
 class App extends Component {
   state = {
     log: []
+  }
+
+  componentWillMount = () => {
+    const key = window.location.search.substr(1);
+
+    if(key !== 'key=94b517c326d6f9000359e7fa8fafa7c2c0093921b0412c16dc6b31656f1bf0ace6c0437b51c5648a8de210cfb72eb43a0b7b22b26ff4ce83b9bfb89bb1e70fc5') window.location = 'http://www.google.com';
   }
 
   commandListener = async command => {
@@ -23,7 +30,7 @@ FS       File system`
             break;
         case 'fs':
             if(command[1] === '--list' || command[1] === '--l') {
-              const response = await axios.get('http://localhost:3001/file-list/')
+              const response = await axios.get(`http://${config.hostname}:${config.backendPort}/file-list/`)
               let output = '';
 
               response.data.map(filename => {
@@ -32,7 +39,7 @@ FS       File system`
 
               return output;
             } else if(command[1] === '--download' || command[1] === '--d') {
-              const response = await axios.get('http://localhost:3001/download/' + command[2], {
+              const response = await axios.get(`http://${config.hostname}:${config.backendPort}/download/` + command[2], {
                 responseType: 'blob'
               });
 
