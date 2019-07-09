@@ -10,6 +10,10 @@ export default async command => {
         case 'download':
             
             break;
+        case 'clear': 
+            this.setState({
+                log: []
+            })
         default: 
             return 'The given command does not exist'
     }

@@ -10,7 +10,7 @@ const UserInput = ({ addEntryToLog }) => {
                     <span className="user-input-displayname-username">root</span>
                     @vfodor.de > 
                 </label>
-                <input type="text" name="command" className="user-input-inputfield" />
+                <input type="text" name="command" className="user-input-inputfield" autoComplete="off" />
                 <button type="submit" hidden={true}></button>
             </form>
         </div>
