@@ -1,0 +1,28 @@
+.user-input {
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.user-input-form {
+    display: flex;
+    align-items: center;
+}
+
+.user-input-displayname {
+    color: rgba(255, 255, 255, 0.13);
+    margin: 0 1em 0 0;
+    font-size: 0.8em;
+    font-weight: 100;
+}
+
+.user-input-displayname-username {
+    color: rgba(53, 223, 10, 0.7);
+}
+
+.user-input-inputfield {
+    flex-grow: 1;
+    font-size: 0.8em;
+    background-color: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+}
